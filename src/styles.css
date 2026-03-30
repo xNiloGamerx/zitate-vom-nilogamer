@@ -1,0 +1,387 @@
+:root {
+  --discord-primary-bg: #1a1a1e;
+  --discord-primary-nav-bg: #121214;
+  --discord-secondary-bg: #232329;
+  --discord-outline: #4f4d55;
+  --discord-shadow: 79, 77, 85;
+  --text-color: #e5e5e7;
+  --text-disabled-color: #82828a;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+p {
+  color: var(--text-color);
+  font-family: "Work Sans", sans-serif;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100vh;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-color: var(--discord-primary-bg);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+  height: 50px;
+  background-color: var(--discord-primary-nav-bg);
+}
+
+.decorator-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5px;
+  height: 100%;
+}
+
+.decorator {
+  width: 100%;
+  height: 80%;
+  background-color: var(--text-color);
+  border-radius: 0px 5px 5px 0px;
+}
+
+.server-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  height: 100%;
+}
+
+.server-icon-wrapper {
+  height: 80%;
+}
+
+.server-icon {
+  border-radius: 8px;
+  height: 100%;
+}
+
+.server-name {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.channel-indicator {
+  color: var(--text-disabled-color);
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.seperator {
+  width: 2px;
+  height: 60%;
+  background-color: var(--text-disabled-color);
+  border-radius: 10px;
+}
+
+
+/* Clock */
+.clock-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.clock-time {
+  font-size: 22rem;
+  font-weight: bold;
+  background: linear-gradient(var(--text-color) 0%, var(--discord-primary-bg) 80%);
+  background-size: 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+/* Quote Card */
+.quote-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  width: 70%;
+  height: 350px;
+  background-color: var(--discord-secondary-bg);
+  border: solid;
+  border-width: 2px;
+  border-color: var(--discord-outline);
+  border-radius: 15px;
+  box-shadow: 3px 3px 10px 5px rgba(var(--discord-shadow), 0.3);
+  transform: translateY(-105px);
+}
+
+.creator-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1rem;
+}
+
+.creator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.creator-profile-picture {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+.creator-name {
+  color: #fff;
+}
+
+.quote-wrapper {
+  flex: 1 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quote {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.author-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.author-profile-picture-wrapper {
+  width: 55px;
+  height: 55px;
+}
+
+.author-profile-picture {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.author-name {
+  font-size: 1.1rem;
+}
+
+.quote-time {
+  color: var(--text-disabled-color);
+  font-size: 0.8rem;
+}
+
+
+/* Control Overlay */
+.control-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  background: rgba(0, 0, 0, 0.3);
+  /* background: rgb(255, 255, 255); */
+
+  box-shadow: inset 0 0 150px rgba(0, 0, 0, 0.9);
+}
+
+.control {
+  justify-self: flex-start;
+  display: flex;
+  gap: 4px;
+}
+
+.control-shuffle {
+  width: 30px;
+  height: 30px;
+  padding: 6px;
+  background-color: var(--discord-primary-nav-bg);
+  border: solid;
+  border-width: 0.5px;
+  border-color: var(--discord-outline);
+  border-radius: 50%;
+  box-shadow: -1px 1px 5px 2px rgb(var(--discord-shadow), 0.1);
+  cursor: pointer;
+  transition: background-color .3s ease;
+}
+
+.control-shuffle:hover {
+  background-color: var(--discord-secondary-bg);
+}
+
+.control-shuffle svg {
+  fill: var(--text-color);
+}
+
+.control-cycle {
+  width: 120px;
+  height: 30px;
+  padding: 3px;
+  color: var(--text-color);
+  background-color: var(--discord-primary-nav-bg);
+  border: solid;
+  border-width: 1px;
+  border-color: var(--discord-outline);
+  border-radius: 50%;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color .3s ease;
+  box-shadow: 1px 1px 5px 2px rgb(var(--discord-shadow), 0.1);
+}
+
+.control-cycle:hover {
+  background-color: var(--discord-secondary-bg);
+}
+
+.settings-btn-wrapper {
+  align-self: flex-end;
+  width: 30px;
+  height: 30px;
+}
+
+.settings-btn {
+  width: 100%;
+  height: 100%;
+  padding: 6px;
+  background-color: var(--discord-primary-nav-bg);
+  border: solid;
+  border-width: 0.5px;
+  border-color: var(--discord-outline);
+  border-radius: 50%;
+  box-shadow: 1px 1px 5px 2px rgb(var(--discord-shadow), 0.1);
+  cursor: pointer;
+  transition: background-color .3s ease;
+}
+
+.settings-btn:hover {
+  background-color: var(--discord-secondary-bg);
+}
+
+.settings-btn svg {
+  fill: var(--text-color);
+}
+
+.settings-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding: 25px 25px 25px 25px;
+  width: 600px;
+  height: 500px;
+  background-color: var(--discord-primary-nav-bg);
+  border: solid;
+  border-width: 0.5px;
+  border-color: var(--discord-outline);
+  border-radius: 20px;
+  box-shadow: 1px 1px 5px 2px rgb(var(--discord-shadow), 0.1);
+}
+
+.settings-modal-title {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.settings-close {
+  width: 20px;
+  height: 20px;
+  fill: var(--text-color);
+  cursor: pointer;
+}
+
+.setting-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0px 15px 0px 15px;
+}
+
+.setting-switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 22px;
+}
+
+.setting-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.setting-slider {
+  position: absolute;
+  inset: 0;
+  background-color: #ccc;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.setting-slider::before {
+  content: "";
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  top: 2px;
+  background: white;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+/* aktiv */
+input:checked + .setting-slider {
+  background-color: #4CAF50;
+}
+
+input:checked + .setting-slider::before {
+  transform: translateX(15px);
+}
+
+.display-none {
+  display: none;
+}

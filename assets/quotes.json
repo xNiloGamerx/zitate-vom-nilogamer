@@ -1,0 +1,36 @@
+{
+    "quotes": [
+        {
+            "timestamp": 1773344160,
+            "quote": {
+                "value": "Most bonding moment ist wenn sich das Sperma kreuzt"
+            },
+            "author": {
+                "name": "XxNiloGamerxX",
+                "color": "#ffffff",
+                "profile_picture": "../assets/user/icons/xxnilogamerxx.webp"
+            },
+            "creator": {
+                "name": "Darktoad",
+                "color": "#ff0000",
+                "profile_picture": "../assets/user/icons/darktoad.webp"
+            }
+        },
+        {
+            "timestamp": 1768085460,
+            "quote": {
+                "value": "Kein syx vor der Taufe des ersten Kindes."
+            },
+            "author": {
+                "name": "XxNiloGamerxX",
+                "color": "#ffffff",
+                "profile_picture": "../assets/user/icons/xxnilogamerxx.webp"
+            },
+            "creator": {
+                "name": "DarkFescherfisch",
+                "color": "#552F66",
+                "profile_picture": "../assets/user/icons/darkfescherfisch.webp"
+            }
+        }
+    ]
+}
