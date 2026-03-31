@@ -1,3 +1,7 @@
+//
+// TODO: Abspeichern der Daten die persistent sein müssen: Welches Intervall wurde als letztes gewählt, bestimmt noch mehr...
+//
+
 require('electron-reload')(__dirname, {
   electron: require(`${__dirname}/../node_modules/electron`)
 });
@@ -19,22 +23,22 @@ function createWindow() {
   })
 
   win.loadFile(path.join(__dirname, '../src/index.html'))
+  win.openDevTools();
 }
 
 app.whenReady().then(() => {
   ipcMain.handle('openDevTools', () => win.webContents.openDevTools());
 
   ipcMain.handle('get-quotes', async () => {
-    console.log("Get Quotes")
     const filePath = path.join(__dirname, '../assets/quotes.json');
     const data = fs.readFileSync(filePath, 'utf-8');
     return JSON.parse(data);
   });
 
-  setInterval(
-    () => win.webContents.send('render-random-quote', {}),
-    500
-  );  
+    // setInterval(
+    //   () => win.webContents.send('render-random-quote', {}),
+    //   500
+    // );  
 
   createWindow();
 
