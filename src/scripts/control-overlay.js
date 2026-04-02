@@ -12,8 +12,8 @@ function resetControlTimeout() {
 }
 
 document.addEventListener("mousemove", resetControlTimeout);
-// document.addEventListener("click", resetControlTimeout);
-// document.addEventListener("keydown", resetControlTimeout);
+document.addEventListener("click", resetControlTimeout);
+document.addEventListener("keydown", resetControlTimeout);
 
 
 // Control Elements
@@ -25,7 +25,7 @@ document.getElementById('control-shuffle').addEventListener('click', () => {
 // Control Interval
 const controlIntervalElement = document.getElementById('control-interval');
 const controlIntervals = {
-  'Täglich': () => updateQuoteInterval(createIntervalHours(24)),
+  'Täglich': () => quoteDailyInterval(),
   'Stündlich': () => updateQuoteInterval(createIntervalHours(60)),
   'Minütlich': () => updateQuoteInterval(createIntervalMinutes(1)),
   'Alle 30s': () => updateQuoteInterval(createIntervalSeconds(30)),

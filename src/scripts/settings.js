@@ -1,11 +1,29 @@
+const settingsModal = document.getElementById('settings-modal');
+
+function toggleSettingsModal() {
+  if (settingsModal.classList.contains('display-none')) {
+    showSettingsModal();
+  } else {
+    hideSettingsModal();
+  }
+}
+
+function showSettingsModal() {
+  settingsModal.classList.remove('display-none');
+}
+
+function hideSettingsModal() {
+  settingsModal.classList.add('display-none');
+}
+
 // Show/Hide Settings Modal
 document.getElementById('settings-btn').addEventListener('click', () => {
-  document.getElementById('settings-modal').classList.toggle('display-none');
-})
+  toggleSettingsModal();
+});
 
 document.getElementById('settings-close-btn').addEventListener('click', () => {
-  document.getElementById('settings-modal').classList.add('display-none');
-})
+  hideSettingsModal();
+});
 
 
 // Birthday Mode Setting

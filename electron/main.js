@@ -9,8 +9,10 @@ require('electron-reload')(__dirname, {
 const { app, BrowserWindow, ipcMain  } = require('electron/main');
 const fs = require('fs');
 const path = require('path');
+const cron = require('node-cron');
 
 let win;
+let dailyQuoteTask;
 
 function createWindow() {
   win = new BrowserWindow({
@@ -27,6 +29,11 @@ function createWindow() {
 }
 
 app.whenReady().then(() => {
+  console.log("Ready");
+  dailyQuoteTask = cron.schedule('0 0 * * *', () => {
+    win.webContents.send('render-random-quote', {})
+  })
+
   ipcMain.handle('openDevTools', () => win.webContents.openDevTools());
 
   ipcMain.handle('get-quotes', async () => {
@@ -34,6 +41,11 @@ app.whenReady().then(() => {
     const data = fs.readFileSync(filePath, 'utf-8');
     return JSON.parse(data);
   });
+
+  ipcMain.handle('trigger-quote-daily', () => { console.log("Started Quote Daily!"); dailyQuoteTask.start(); });
+  ipcMain.handle('stop-quote-daily', () => { console.log("Stopped Quote Daily!"); dailyQuoteTask.stop(); });
+
+  ipcMain.handle('terminate-app', () => app.quit());
 
     // setInterval(
     //   () => win.webContents.send('render-random-quote', {}),
