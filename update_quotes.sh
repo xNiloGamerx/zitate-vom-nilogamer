@@ -1,2 +1,2 @@
 #!/bin/bash
-rsync -avz -e ssh quotes-zvm@cdelab.de:~/zvm/quotes.json ~/test.json
+rsync -avz -e ssh cdelab:/home/quotes-zvm/zvm/quotes.json /home/kiosk-zvm/zitate-vom-nilogamer/assets/quotes.json
