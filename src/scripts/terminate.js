@@ -55,3 +55,12 @@ inputHideEye.addEventListener('click', () => {
   inputShowEye.style.display = "inline-block";
   pwdInput.type = 'text';
 });
+
+// Number field
+document.querySelectorAll('.termiante-number-field-key').forEach((key) => key.addEventListener('click', (event) => {
+  pwdInput.value += event.target.innerText;
+}));
+
+document.getElementById('terminate-number-field-key-delete').addEventListener('click', () => {
+  pwdInput.value = pwdInput.value.slice(0, -1);
+});

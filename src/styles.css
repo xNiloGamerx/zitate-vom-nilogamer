@@ -126,6 +126,60 @@ label {
   cursor: pointer;
 }
 
+.number-field-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.number-field {
+  display: grid;
+  grid-template-columns: repeat(3, 35px);
+  grid-template-rows: repeat(4, 35px);
+  justify-content: end;
+  gap: 20px;
+}
+
+.number-field-key {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--discord-primary-bg);
+  padding: 8px;
+  border: solid;
+  border-width: 1.5px;
+  border-color: var(--discord-outline);
+  border-radius: 8px;
+  color: var(--text-color);
+  transition: opacity .3s ease;
+  cursor: pointer;
+}
+
+.number-field-key svg {
+  width: 15px;
+  height: 15px;
+  fill: var(--text-color);
+}
+
+.number-field-key:nth-last-child(2) {
+  grid-column: 2;
+}
+
+.number-field-key:last-child {
+  grid-column: 3;
+}
+
+.number-field-key:hover {
+  opacity: 0.9;
+}
+
+.number-field-key:active {
+  opacity: 0.7;
+}
+
+
+/* App */
 .app {
   display: flex;
   flex-direction: column;
