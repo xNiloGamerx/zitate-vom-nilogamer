@@ -6,10 +6,10 @@ const { app, BrowserWindow, ipcMain  } = require('electron/main');
 const fs = require('fs');
 const path = require('path');
 const cron = require('node-cron');
+const { setupIpcHandlers } = require('./lib/ipc-handlers');
 const { getIsRaspberryPi } = require('./utils');
 
 let win;
-let dailyQuoteTask;
 const isRaspberryPi = getIsRaspberryPi();
 
 if (isRaspberryPi) {
@@ -36,7 +36,7 @@ function createWindow() {
       width: 1024,
       height: 600,
       webPreferences: {
-        preload: path.join(__dirname, 'preload.js'),
+        preload: path.join(__dirname, 'preload/preload.js'),
         contextIsolation: true
       }
     }
@@ -55,29 +55,10 @@ function createWindow() {
 
 app.whenReady().then(() => {
   console.log("Ready");
-  dailyQuoteTask = cron.schedule('0 0 * * *', () => {
-    win.webContents.send('render-random-quote', {})
-  })
-
-  ipcMain.handle('openDevTools', () => win.webContents.openDevTools());
-
-  ipcMain.handle('get-quotes', async () => {
-    const filePath = path.join(__dirname, '../assets/quotes.json');
-    const data = fs.readFileSync(filePath, 'utf-8');
-    return JSON.parse(data);
-  });
-
-  ipcMain.handle('trigger-quote-daily', () => { console.log("Started Quote Daily!"); dailyQuoteTask.start(); });
-  ipcMain.handle('stop-quote-daily', () => { console.log("Stopped Quote Daily!"); dailyQuoteTask.stop(); });
-
-  ipcMain.handle('terminate-app', () => app.quit());
-
-    // setInterval(
-    //   () => win.webContents.send('render-random-quote', {}),
-    //   500
-    // );  
 
   createWindow();
+
+  setupIpcHandlers(app, win);
 
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) {
