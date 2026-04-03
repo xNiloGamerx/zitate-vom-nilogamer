@@ -22,7 +22,6 @@
     "electron": "^41.1.0"
   },
   "dependencies": {
-    "electron-reload": "^2.0.0-alpha.1",
     "node-cron": "^4.2.1"
   }
 }

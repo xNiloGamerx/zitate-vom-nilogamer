@@ -2,30 +2,50 @@
 // TODO: Abspeichern der Daten die persistent sein müssen: Welches Intervall wurde als letztes gewählt, bestimmt noch mehr...
 //
 
-require('electron-reload')(__dirname, {
-  electron: require(`${__dirname}/../node_modules/electron`)
-});
-
 const { app, BrowserWindow, ipcMain  } = require('electron/main');
 const fs = require('fs');
 const path = require('path');
 const cron = require('node-cron');
+const { getIsRaspberryPi } = require('./utils');
 
 let win;
 let dailyQuoteTask;
+const isRaspberryPi = getIsRaspberryPi();
 
 function createWindow() {
-  win = new BrowserWindow({
-    width: 800,
-    height: 480,
-    webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
-      contextIsolation: true
+  let browserWindowPayload;
+  if (isRaspberryPi) {
+    browserWindowPayload = {
+      width: 1024,
+      height: 600,
+      frame: false,
+      fullscreen: false,
+      alwaysOnTop: false,
+      webPreferences: {
+        preload: path.join(__dirname, 'preload.js'),
+        contextIsolation: true
+      }
     }
-  })
+  } else {
+    browserWindowPayload = {
+      width: 1024,
+      height: 600,
+      webPreferences: {
+        preload: path.join(__dirname, 'preload.js'),
+        contextIsolation: true
+      }
+    }
+  }
+  
+  win = new BrowserWindow(browserWindowPayload);
 
   win.loadFile(path.join(__dirname, '../src/index.html'))
-  win.openDevTools();
+  
+  if (isRaspberryPi) {
+    win.maximize();
+  } else {
+    win.openDevTools();
+  }
 }
 
 app.whenReady().then(() => {
