@@ -1,8 +1,10 @@
 const { ipcMain  } = require('electron/main');
+const { setupSettingHandlers } = require('./setting-handlers');
 const { setupQuoteHandlers } = require('./quote-handlers');
 const { setupDailyQuoteIpcHandlers } = require('./daily-quote-ipc-handlers');
 
 function setupIpcHandlers(app, win) {
+  setupSettingHandlers();
   setupQuoteHandlers();
   setupDailyQuoteIpcHandlers();
 

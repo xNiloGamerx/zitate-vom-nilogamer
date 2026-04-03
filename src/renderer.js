@@ -1,20 +1,6 @@
 let birthdayMode = true;
 let quotes = [];
 
-// Control Overlay //
-
-// Control Overlay //
-
-
-// Control Shuffle //
-
-// Control Shuffle //
-
-
-// Settings Modal //
-
-// Settings Modal //
-
 
 // Render Random Quote triggered by Main //
   // window.api.onRenderRandomQuote((data) => {
@@ -26,6 +12,12 @@ async function init() {
   quotes = await loadQuotes();
 
   renderRandomQuote();
+
+  // Load saved Settings
+  loadSavedSetting();
+
+  // Set Quote Interval from last app run
+  setSavedQuoteInterval();
 }
 
 init();

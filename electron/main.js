@@ -3,11 +3,10 @@
 //
 
 const { app, BrowserWindow, ipcMain  } = require('electron/main');
-const fs = require('fs');
 const path = require('path');
-const cron = require('node-cron');
 const { setupIpcHandlers } = require('./lib/ipc-handlers');
 const { getIsRaspberryPi } = require('./utils');
+const { setSetting, getSetting } = require('./setting');
 
 let win;
 const isRaspberryPi = getIsRaspberryPi();

@@ -10,6 +10,7 @@ window.api.onRenderRandomQuote((data) => {
 
 function updateQuoteInterval(newQuoteIntervalTime) {
     console.log("Starting Quote Schedular: ", newQuoteIntervalTime, "ms");
+
     if (quoteDaily) {
         window.api.stopQuoteDaily();
         quoteDaily = false;
@@ -43,4 +44,6 @@ function updateQuote() {
     renderRandomQuote();
 }
 
-quoteDailyInterval();
+function setQuoteIntervalSetting(name) {
+    window.api.setSetting('quote.interval', name);
+}

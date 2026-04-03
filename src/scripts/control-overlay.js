@@ -46,5 +46,20 @@ controlIntervalElement.addEventListener('click', () => {
   controlIntervalElement.innerText = newControlLabel;
 
   // Setzen des neuen Quote Intervals
+  setQuoteIntervalSetting(newControlLabel);
   controlIntervals[newControlLabel]();
 });
+
+async function setSavedQuoteInterval() {
+  const savedQuoteInterval = await window.api.getSetting('quote.interval');
+
+  if (savedQuoteInterval != undefined) {
+    currentControlIntervalIndex = Object.keys(controlIntervals).indexOf(savedQuoteInterval);
+    controlIntervalElement.innerText = savedQuoteInterval;
+    controlIntervals[savedQuoteInterval]();
+  } else {
+    const firstIntervalLabel = Object.keys(controlIntervals)[currentControlIntervalIndex];
+    controlIntervalElement.innerText = firstIntervalLabel;
+    controlIntervals[firstIntervalLabel]();
+  }
+}
