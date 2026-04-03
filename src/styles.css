@@ -587,11 +587,13 @@ input:checked + .setting-slider::before {
   display: none;
   width: 16px;
   fill: var(--text-color);
+  cursor: pointer;
 }
 
 .input-wrapper > .input-hide-eye {
   width: 16px;
   fill: var(--text-color);
+  cursor: pointer;
 }
 
 .terminate-control-btn-wrapper {
