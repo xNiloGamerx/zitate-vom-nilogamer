@@ -20,6 +20,7 @@ function updateQuoteInterval(newQuoteIntervalTime) {
 }
 
 function quoteDailyInterval() {
+    console.log("Starting Daily Quote Interval");
     quoteDaily = true;
     clearInterval(quoteInterval);
     window.api.triggerQuoteDaily();
@@ -42,4 +43,4 @@ function updateQuote() {
     renderRandomQuote();
 }
 
-updateQuoteInterval(createIntervalHours(24));
+quoteDailyInterval();

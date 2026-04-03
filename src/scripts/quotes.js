@@ -1,4 +1,4 @@
-let lastQuote = null;
+let lastQuote;
 
 async function loadQuotes() {
   // const response = await fetch("../assets/quotes.json");
@@ -17,11 +17,9 @@ function getRandomQuote() {
 
 function renderRandomQuote() {
   const randomQuote = getRandomQuote();
-  console.log(lastQuote, randomQuote);
   if (lastQuote && lastQuote === randomQuote) {
     renderRandomQuote();
   }else {
-    console.log("Rendering")
     render(randomQuote);
   }
 }
