@@ -21,6 +21,18 @@ function hideTerminateModal() {
   terminateModal.classList.add('display-none');
 }
 
+function showPassword(input, eyeOpen, eyeClosed) {
+  eyeOpen.style.display = "inline-block";
+  eyeClosed.style.display = 'none';
+  input.type = 'text';
+}
+
+function hidePassword(input, eyeOpen, eyeClosed) {
+  eyeOpen.style.display = 'none';
+  eyeClosed.style.removeProperty('display');
+  input.type = 'password';
+}
+
 // Show/Hide Terminate Modal
 document.getElementById('settings-terminate-btn').addEventListener('click', () => {
   hideSettingsModal();
@@ -38,6 +50,7 @@ document.getElementById('terminate-confirm-btn').addEventListener('click', () =>
 
 // Cancel Terminate
 document.getElementById('terminate-cancel-btn').addEventListener('click', () => {
+  hidePassword(pwdInput, inputShowEye, inputHideEye);
   pwdInput.value = '';
   hideTerminateModal();
   showSettingsModal();
@@ -45,15 +58,11 @@ document.getElementById('terminate-cancel-btn').addEventListener('click', () => 
 
 // Show/Hide Password
 inputShowEye.addEventListener('click', () => {
-  inputHideEye.style.removeProperty('display');
-  inputShowEye.style.display = 'none';
-  pwdInput.type = 'password';
+  hidePassword(pwdInput, inputShowEye, inputHideEye);
 });
 
 inputHideEye.addEventListener('click', () => {
-  inputHideEye.style.display = 'none';
-  inputShowEye.style.display = "inline-block";
-  pwdInput.type = 'text';
+  showPassword(pwdInput, inputShowEye, inputHideEye);
 });
 
 // Number field
