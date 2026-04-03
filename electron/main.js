@@ -12,6 +12,10 @@ let win;
 let dailyQuoteTask;
 const isRaspberryPi = getIsRaspberryPi();
 
+if (isRaspberryPi) {
+  app.disableHardwareAcceleration();
+}
+
 function createWindow() {
   let browserWindowPayload;
   if (isRaspberryPi) {
