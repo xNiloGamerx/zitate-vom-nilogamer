@@ -1,4 +1,4 @@
-let lastQuote;
+let lastQuoteIds = [];
 
 async function loadQuotes() {
   // const response = await fetch("../assets/quotes.json");
@@ -17,11 +17,17 @@ function getRandomQuote() {
 
 function renderRandomQuote() {
   const randomQuote = getRandomQuote();
-  if (lastQuote && lastQuote === randomQuote) {
+  if (lastQuoteIds.includes(randomQuote['id'])) {
     renderRandomQuote();
-  }else {
+  } else {
     render(randomQuote);
+    lastQuoteIds.push(randomQuote['id']);
+
+    if (lastQuoteIds.length > Math.floor(quotes.length / 2)) {
+      lastQuoteIds.shift();
+    }
   }
+  console.log(lastQuoteIds);
 }
 
 function render(quote) {
