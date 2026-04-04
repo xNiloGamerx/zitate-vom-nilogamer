@@ -1,9 +1,10 @@
 const cron = require('node-cron');
 const { exec } = require('child_process');
-const { getIsRaspberryPi } = require('./utils');
+const { getIsRaspberryPi } = require('../utils');
 
 function startUpdateQuotesDaily() {
   if (getIsRaspberryPi()) {
+    console.log("Started Update Quotes Daily");
     cron.schedule('0 0 * * *', () => {
       exec('sh ../../update_quotes.sh', (error, stdout, stderr) => {
         if (error) {
@@ -17,6 +18,8 @@ function startUpdateQuotesDaily() {
         console.log(`Script output:\n${stdout}`);
       });
     });
+  } else {
+    console.log("Skipped Update Quotes Daily cause not on Raspberrypi");
   }
 }
 
