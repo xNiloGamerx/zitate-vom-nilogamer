@@ -1,7 +1,5 @@
-DISPLAY=:0 \
-DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus \
-pm2 start npm --name "zvm" \
--- start
+MY_UID=$(id -u)
 
-#--env DISPLAY=:0 \
-#--env DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus \
+MY_DBUS="unix:path=/run/user/$MY_UID/bus"
+
+DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=$MY_DBUS pm2 start npm --name "zvm" --env DISPLAY=:0 --env DBUS_SESSION_BUS_ADDRESS=$MY_DBUS -- start
