@@ -7,6 +7,8 @@ const path = require('path');
 const { setupIpcHandlers } = require('./lib/ipc-handlers');
 const { getIsRaspberryPi } = require('./utils');
 const { setSetting, getSetting } = require('./setting');
+const { startUpdateQuotesDaily } = require('./lib/update-quotes');
+startUpdateQuotesDaily();
 
 let win;
 const isRaspberryPi = getIsRaspberryPi();
