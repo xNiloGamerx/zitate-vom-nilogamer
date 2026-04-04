@@ -1,7 +1,3 @@
-//
-// TODO: Abspeichern der Daten die persistent sein müssen: Welches Intervall wurde als letztes gewählt, bestimmt noch mehr...
-//
-
 const { app, BrowserWindow, ipcMain  } = require('electron/main');
 const path = require('path');
 const { setupIpcHandlers } = require('./lib/ipc-handlers');

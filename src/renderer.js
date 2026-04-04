@@ -9,7 +9,7 @@ let quotes = [];
 // Render Random Quote triggered by Main //
 
 async function init() {
-  quotes = await loadQuotes();
+  await loadQuotes();
 
   renderRandomQuote();
 

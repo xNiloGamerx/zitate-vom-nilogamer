@@ -6,7 +6,7 @@ async function loadQuotes() {
   // quotes = data['quotes'];
 
   const response = await window.api.getQuotes();
-  return response['quotes'];
+  quotes = response['quotes'];
 
   console.log("Geladen:", quotes);
 }
@@ -62,3 +62,7 @@ function render(quote) {
 
   lastQuote = quote;
 }
+
+window.api.onUpdateQuotes((data) => {
+  loadQuotes();
+});

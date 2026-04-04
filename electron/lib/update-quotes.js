@@ -2,7 +2,7 @@ const cron = require('node-cron');
 const { exec } = require('child_process');
 const { getIsRaspberryPi } = require('../utils');
 
-function startUpdateQuotesDaily() {
+function startUpdateQuotesDaily(win) {
   if (getIsRaspberryPi()) {
     console.log("Started Update Quotes Daily");
     cron.schedule('0 0 * * *', () => {
@@ -16,6 +16,8 @@ function startUpdateQuotesDaily() {
             return;
         }
         console.log(`Script output:\n${stdout}`);
+        
+        win.webContents.send('update-quotes');
       });
     });
   } else {

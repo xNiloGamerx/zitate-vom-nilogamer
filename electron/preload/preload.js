@@ -9,6 +9,7 @@ contextBridge.exposeInMainWorld('api', {
   openDevTools: () =>  ipcRenderer.invoke('openDevTools'),
 
   getQuotes: () => ipcRenderer.invoke('get-quotes'),
+  onUpdateQuotes: (callback) => ipcRenderer.on('update-quotes', (event, data) => callback(data)),
   onRenderRandomQuote: (callback) => ipcRenderer.on('render-random-quote', (event, data) => callback(data)),
 
   triggerQuoteDaily: () => ipcRenderer.invoke('trigger-quote-daily'),
