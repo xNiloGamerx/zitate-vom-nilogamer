@@ -6,7 +6,7 @@ const { getIsRaspberryPi } = require('../utils');
 function startUpdateQuotesDaily(win) {
   if (getIsRaspberryPi()) {
     console.log("Started Update Quotes Daily");
-    cron.schedule('0 0 * * *', () => {
+    cron.schedule('0 0 * * *', (win) => {
       exec('sh ' + path.join(__dirname, '../../update_quotes.sh'), (error, stdout, stderr) => {
         if (error) {
             console.error(`Error executing script: ${error.message}`);
