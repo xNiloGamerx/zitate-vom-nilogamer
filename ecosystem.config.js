@@ -1,6 +1,6 @@
 module.exports = {
   apps : [{
-    name: "electron-app",
+    name: "zvm",
     script: "npm",
     args: "start",
     env: {
