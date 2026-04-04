@@ -301,7 +301,7 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
   font-size: 1.1rem;
 }
 
@@ -331,7 +331,7 @@ label {
 
 .quote {
   text-align: center;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-weight: bold;
 }
 
@@ -340,11 +340,12 @@ label {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 4px;
 }
 
 .author-profile-picture-wrapper {
-  width: 55px;
-  height: 55px;
+  width: 50px;
+  height: 50px;
 }
 
 .author-profile-picture {
