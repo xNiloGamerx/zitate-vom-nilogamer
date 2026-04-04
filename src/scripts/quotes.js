@@ -39,7 +39,7 @@ function render(quote) {
 
   quoteText.innerText = quote['quote']['value'];
 
-  authorProfilePicture.src = quote['author']['profile_picture'];
+  authorProfilePicture.src = "../assets/user/icons/" + quote['author']['profile_picture'];
   authorName.style.color = quote['author']['color'];
   authorName.innerText = quote['author']['name'];
 
