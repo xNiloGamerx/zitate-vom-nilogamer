@@ -4,7 +4,6 @@ const { setupIpcHandlers } = require('./lib/ipc-handlers');
 const { getIsRaspberryPi } = require('./utils');
 const { setSetting, getSetting } = require('./setting');
 const { startUpdateQuotesDaily } = require('./lib/update-quotes');
-startUpdateQuotesDaily();
 
 let win;
 const isRaspberryPi = getIsRaspberryPi();
@@ -52,6 +51,8 @@ function createWindow() {
 
 app.whenReady().then(() => {
   console.log("Ready");
+
+  startUpdateQuotesDaily(win);
 
   createWindow();
 
