@@ -11,5 +11,6 @@ if [ $LOCAL != $REMOTE ]; then
     echo "Änderungen gefunden. Aktualisiere..."
     git pull
     # Hier den Befehl zum Neustart einfügen, z.B.:
-    # pm2 restart my-app OR systemctl restart my-app
+    npm install
+    pm2 reload zvm
 fi
