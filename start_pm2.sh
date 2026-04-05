@@ -1,6 +1,3 @@
-chmod 744 ./update_app.sh
-chmod 744 ./update_quotes.sh
-
 MY_UID=$(id -u)
 
 MY_DBUS="unix:path=/run/user/$MY_UID/bus"
