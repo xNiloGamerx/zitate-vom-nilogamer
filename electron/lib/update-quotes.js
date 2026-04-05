@@ -6,7 +6,7 @@ const { getIsRaspberryPi } = require('../utils');
 function startUpdateQuotesDaily(win) {
   if (getIsRaspberryPi()) {
     console.log("Started Update Quotes Daily");
-    cron.schedule('0 0 * * *', (win) => {
+    cron.schedule('0 0 * * *', () => {
       exec('sh ' + path.join(__dirname, '../../update_quotes.sh'), (error, stdout, stderr) => {
         if (error) {
             console.error(`Error executing script: ${error.message}`);
@@ -18,7 +18,7 @@ function startUpdateQuotesDaily(win) {
         }
         console.log(`Script output:\n${stdout}`);
         
-        win.webContents.send('update-quotes');
+        win.webContents.send('update-quotes'); // <- Hier ist anscheinend: Cannot read properties of undefined (reading 'send'): Foto auf Handy
       });
     });
   } else {
