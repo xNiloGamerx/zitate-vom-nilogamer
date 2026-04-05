@@ -19,7 +19,8 @@ function startUpdateQuotesDaily(win) {
         console.log(`Script output:\n${stdout}`);
         
         if (win && !win.isDestroyed()) {
-          win.webContents.send('update-quotes'); // <- Hier ist anscheinend: Cannot read properties of undefined (reading 'send'): Foto auf Handy
+          win.webContents.send('update-quotes');
+          console.log("Finished Quotes Daily successfully");
         } else {
           console.log("Updating quotes not possible. win is undefined or destroyed");
         }

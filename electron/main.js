@@ -52,9 +52,9 @@ function createWindow() {
 app.whenReady().then(() => {
   console.log("Ready");
 
-  startUpdateQuotesDaily(win);
-
   createWindow();
+
+  startUpdateQuotesDaily(win);
 
   setupIpcHandlers(app, win);
 
