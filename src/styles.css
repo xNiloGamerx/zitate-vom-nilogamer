@@ -281,6 +281,7 @@ label {
 
 /* Quote Card */
 .quote-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -295,6 +296,17 @@ label {
   border-radius: 15px;
   box-shadow: 3px 3px 10px 5px rgba(var(--discord-shadow), 0.3);
   transform: translateY(-95px);
+}
+
+.quote-stats-wrapper {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+}
+
+.quote-stats-wrapper * {
+  color: var(--discord-outline);
+  font-size: 0.75rem;
 }
 
 .creator-wrapper {

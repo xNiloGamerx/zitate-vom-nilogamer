@@ -31,6 +31,9 @@ function renderRandomQuote() {
 }
 
 function render(quote) {
+  const quoteStatsTime = document.getElementById('quote-stats-time');
+  const quoteStatsNumberCurrent = document.getElementById('quote-stats-number-current');
+  const quoteStatsNumberTotal = document.getElementById('quote-stats-number-total');
   const creatorProfilePicture = document.getElementById('creator-profile-picture');
   const creatorName = document.getElementById('creator-name');
   const quoteText = document.getElementById('quote');
@@ -38,6 +41,12 @@ function render(quote) {
   const authorName = document.getElementById('author-name');
   const quoteDate = document.getElementById('quote-date');
   const quoteTime = document.getElementById('quote-time');
+
+  const now = new Date();
+  quoteStatsTime.innerText = String(now.getHours()).padStart(2, '0') + ":" + String(now.getMinutes()).padStart(2, '0');
+
+  quoteStatsNumberCurrent.innerText = quotes.indexOf(quote) + 1;
+  quoteStatsNumberTotal.innerText = quotes.length;
 
   creatorProfilePicture.src = "../assets/user/icons/" + quote['creator']['profile_picture'];
   creatorName.style.color = quote['creator']['color'];
