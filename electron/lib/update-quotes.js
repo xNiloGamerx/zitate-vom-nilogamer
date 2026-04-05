@@ -18,7 +18,11 @@ function startUpdateQuotesDaily(win) {
         }
         console.log(`Script output:\n${stdout}`);
         
-        win.webContents.send('update-quotes'); // <- Hier ist anscheinend: Cannot read properties of undefined (reading 'send'): Foto auf Handy
+        if (win && !win.isDestroyed()) {
+          win.webContents.send('update-quotes'); // <- Hier ist anscheinend: Cannot read properties of undefined (reading 'send'): Foto auf Handy
+        } else {
+          console.log("Updating quotes not possible. win is undefined or destroyed");
+        }
       });
     });
   } else {
