@@ -1,5 +1,6 @@
 const settingsModal = document.getElementById('settings-modal');
 const birthdayModeToggle = document.getElementById('birthday-mode-input');
+let isSettingsModalOpen = false;
 
 function toggleSettingsModal() {
   if (settingsModal.classList.contains('display-none')) {
@@ -11,10 +12,12 @@ function toggleSettingsModal() {
 
 function showSettingsModal() {
   settingsModal.classList.remove('display-none');
+  isSettingsModalOpen = true;
 }
 
 function hideSettingsModal() {
   settingsModal.classList.add('display-none');
+  isSettingsModalOpen = false;
 }
 
 async function loadSavedSetting() {

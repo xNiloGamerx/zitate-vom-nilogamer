@@ -2,6 +2,7 @@ const terminateModal = document.getElementById('terminate-modal');
 const pwdInput = document.getElementById('terminate-pwd-inp')
 const inputShowEye = document.getElementById('terminate-input-show-eye');
 const inputHideEye = document.getElementById('terminate-input-hide-eye');
+let isTerminateModalOpen = false;
 
 const pwd = "1234";
 
@@ -15,10 +16,12 @@ function toggleTerminateModal() {
 
 function showTerminateModal() {
   terminateModal.classList.remove('display-none');
+  isTerminateModalOpen = true;
 }
 
 function hideTerminateModal() {
   terminateModal.classList.add('display-none');
+  isTerminateModalOpen = false;
 }
 
 function showPassword(input, eyeOpen, eyeClosed) {

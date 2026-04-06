@@ -7,7 +7,9 @@ function resetControlTimeout() {
   controlOverlay.style.display = "flex";
 
   controlTimeout = setTimeout(() => {
-    controlOverlay.style.display = 'none';
+    if (!isSettingsModalOpen && !isTerminateModalOpen) {
+      controlOverlay.style.display = 'none';
+    }
   }, 3000);
 }
 
