@@ -1,19 +1,27 @@
+const { ipcMain  } = require('electron/main');
+const { exec } = require('child_process');
+const { getIsRaspberryPi } = require('../utils');
+
 function updateApp() {
-  exec('sh ' + path.join(__dirname, '../../update_app.sh'), (error, stdout, stderr) => {
-    if (error) {
-        console.error(`Error executing script: ${error.message}`);
-        return;
-    }
-    if (stderr) {
-        console.error(`Script stderr: ${stderr}`);
-        return;
-    }
-    console.log(`Script output:\n${stdout}`);
-  });
+  if (getIsRaspberryPi()) {
+    exec('sh ' + path.join(__dirname, '../../update_app.sh'), (error, stdout, stderr) => {
+      if (error) {
+          console.error(`Error executing script: ${error.message}`);
+          return;
+      }
+      if (stderr) {
+          console.error(`Script stderr: ${stderr}`);
+          return;
+      }
+      console.log(`Script output:\n${stdout}`);
+    });
+  } else {
+    console.log("Skipped running updating app shell script cause not on raspberrypi");
+  }
 }
 
 function setupUpdateAppHandlers() {
   ipcMain.handle('update-app', () => updateApp());
 }
 
-module.exports = { setupUpdateAppHandlers() }
+module.exports = { setupUpdateAppHandlers }
