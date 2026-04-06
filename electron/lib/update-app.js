@@ -11,7 +11,7 @@ function updateApp() {
           return;
       }
       if (stderr) {
-          console.error(`Script stderr: ${stderr}`);
+          console.log(`Script stderr: ${stderr}`);
           return;
       }
       console.log(`Script output:\n${stdout}`);
