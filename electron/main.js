@@ -1,3 +1,7 @@
+//
+// TODO: Implement to buttons: Update App and Update Quotes in Settings Modal to manually update app and qutoes
+//
+
 const { app, BrowserWindow, ipcMain  } = require('electron/main');
 const path = require('path');
 const { setupIpcHandlers } = require('./lib/ipc-handlers');
