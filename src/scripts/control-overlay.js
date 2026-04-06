@@ -49,7 +49,7 @@ quoteIntervalElement.addEventListener('click', () => {
   updateQuoteInterval(quoteIntervalLabel, quoteIntervals[quoteIntervalLabel]);
 });
 
-async function setSavedQuoteInterval() {
+async function setSavedQuoteIntervalOrDefault() {
   const savedQuoteIntervalLabel = await window.api.getSetting('quote.interval.label');
   const savedQuoteInterval = await window.api.getSetting('quote.interval.value');
 
