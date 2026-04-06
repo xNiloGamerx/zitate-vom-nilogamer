@@ -9,6 +9,7 @@ contextBridge.exposeInMainWorld('api', {
   openDevTools: () =>  ipcRenderer.invoke('openDevTools'),
 
   getQuotes: () => ipcRenderer.invoke('get-quotes'),
+  pullQuotes: () => ipcRenderer.invoke('pull-quotes'),
   onUpdateQuotes: (callback) => ipcRenderer.on('update-quotes', (event, data) => callback(data)),
   onRenderRandomQuote: (callback) => ipcRenderer.on('render-random-quote', (event, data) => callback(data)),
 
@@ -18,6 +19,8 @@ contextBridge.exposeInMainWorld('api', {
   startQuoteJob: () => ipcRenderer.invoke('start-quote-job'),
   stopQuoteJob: () => ipcRenderer.invoke('stop-quote-job'),
   restartQuoteJob: () => ipcRenderer.invoke('restart-quote-job'),
+
+  updateApp: () => ipcRenderer.invoke('update-app'),
 
   terminateApp: () => ipcRenderer.invoke('terminate-app'),
 });

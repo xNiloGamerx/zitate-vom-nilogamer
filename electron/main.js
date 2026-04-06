@@ -58,7 +58,7 @@ app.whenReady().then(() => {
 
   createWindow();
 
-  startUpdateQuotesDaily(win);
+  startPullQuotesDaily(win);
 
   setupIpcHandlers(app, win);
 

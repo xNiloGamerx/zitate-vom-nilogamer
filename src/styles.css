@@ -98,7 +98,7 @@ label {
   border-width: 1px;
   border-color: var(--discord-outline);
   border-radius: 50px;
-  box-shadow: 1px 1px 25px 1px rgba(var(--discord-shadow), 0.3);
+  box-shadow: 1px 1px 8px 1px rgba(var(--discord-shadow), 0.3);
   transition: opacity .3s ease;
   cursor: pointer;
 }
@@ -543,14 +543,25 @@ input:checked + .setting-slider::before {
   transform: translateX(15px);
 }
 
-.display-none {
-  display: none;
+.setting-update-btn-wrapper {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
+.setting-update-btn-wrapper .secondary-button {
+  flex: 1 1;
+  height: 38px;
+  border-radius: 12px;
+}
+
+.setting-update-btn-wrapper .secondary-button-btn {
+  font-size: 1rem;
 }
 
 .settings-terminate-wrapper {
   width: 50%;
   height: 42px;
-
 }
 
 
@@ -627,6 +638,10 @@ input:checked + .setting-slider::before {
   font-size: 1rem;
 }
 
+
+.display-none {
+  display: none;
+}
 
 @keyframes popin {
   0% {
