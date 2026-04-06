@@ -12,8 +12,12 @@ contextBridge.exposeInMainWorld('api', {
   onUpdateQuotes: (callback) => ipcRenderer.on('update-quotes', (event, data) => callback(data)),
   onRenderRandomQuote: (callback) => ipcRenderer.on('render-random-quote', (event, data) => callback(data)),
 
-  triggerQuoteDaily: () => ipcRenderer.invoke('trigger-quote-daily'),
-  stopQuoteDaily: () => ipcRenderer.invoke('stop-quote-daily'),
+  setQuoteInterval: (newQuoteInterval) => ipcRenderer.invoke('set-quote-interval', newQuoteInterval),
+  getQuoteInterval: () => ipcRenderer.invoke('get-quote-interval'),
+
+  startQuoteJob: () => ipcRenderer.invoke('start-quote-job'),
+  stopQuoteJob: () => ipcRenderer.invoke('stop-quote-job'),
+  restartQuoteJob: () => ipcRenderer.invoke('restart-quote-job'),
 
   terminateApp: () => ipcRenderer.invoke('terminate-app'),
 });

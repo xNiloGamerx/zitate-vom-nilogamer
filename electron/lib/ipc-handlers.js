@@ -1,12 +1,12 @@
 const { ipcMain  } = require('electron/main');
 const { setupSettingHandlers } = require('./setting-handlers');
 const { setupQuoteHandlers } = require('./quote-handlers');
-const { setupDailyQuoteIpcHandlers } = require('./daily-quote-ipc-handlers');
+const { setupQuoteJobHandlers } = require('./quote-job-handlers');
 
 function setupIpcHandlers(app, win) {
   setupSettingHandlers();
   setupQuoteHandlers();
-  setupDailyQuoteIpcHandlers();
+  setupQuoteJobHandlers(win);
 
   // Terminate App Handler
   ipcMain.handle('terminate-app', () => app.quit());

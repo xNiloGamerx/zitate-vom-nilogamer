@@ -1,4 +1,4 @@
-const cron = require('node-cron');
+const schedule = require('node-schedule');
 const path = require('path');
 const { exec } = require('child_process');
 const { getIsRaspberryPi } = require('../utils');
@@ -6,7 +6,7 @@ const { getIsRaspberryPi } = require('../utils');
 function startUpdateQuotesDaily(win) {
   if (getIsRaspberryPi()) {
     console.log("Started Update Quotes Daily");
-    cron.schedule('0 0 * * *', () => {
+    schedule.scheduleJob('* 0 0 * * *', () => {
       exec('sh ' + path.join(__dirname, '../../update_quotes.sh'), (error, stdout, stderr) => {
         if (error) {
             console.error(`Error executing script: ${error.message}`);

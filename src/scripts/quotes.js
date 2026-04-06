@@ -1,5 +1,11 @@
 let lastQuoteIds = [];
 
+// Render Random Quote triggered by Main //
+window.api.onRenderRandomQuote((data) => {
+    renderRandomQuote();
+});
+// Render Random Quote triggered by Main //
+
 async function loadQuotes() {
   // const response = await fetch("../assets/quotes.json");
   // const data = await response.json();

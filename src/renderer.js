@@ -17,7 +17,7 @@ async function init() {
   loadSavedSetting();
 
   // Set Quote Interval from last app run
-  setSavedQuoteInterval();
+  setSavedQuoteIntervalOrDefault();
 }
 
 init();
