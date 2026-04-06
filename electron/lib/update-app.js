@@ -1,6 +1,7 @@
 const { ipcMain  } = require('electron/main');
 const { exec } = require('child_process');
 const { getIsRaspberryPi } = require('../utils');
+const path = require('path');
 
 function updateApp() {
   if (getIsRaspberryPi()) {
