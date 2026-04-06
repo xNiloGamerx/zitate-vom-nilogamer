@@ -6,22 +6,26 @@ const path = require('path');
 let isUpdatingApp = false;
 
 function updateApp() {
-  if (getIsRaspberryPi() && !isUpdatingApp) {
-    console.log("Updating App")
-    isUpdatingApp = true;
-    exec('sh ' + path.join(__dirname, '../../update_app.sh'), (error, stdout, stderr) => {
-      if (error) {
-          console.error(`Error executing script: ${error.message}`);
-          isUpdatingApp = false;
-          return;
-      }
-      if (stderr) {
-          console.log(`Script stderr: ${stderr}`);
-          return;
-      }
-      console.log(`Script output:\n${stdout}`);
-      isUpdatingApp = false;
-    });
+  if (getIsRaspberryPi()) {
+    if (!isUpdatingApp) {
+      console.log("Updating App")
+      isUpdatingApp = true;
+      exec('sh ' + path.join(__dirname, '../../update_app.sh'), (error, stdout, stderr) => {
+        if (error) {
+            console.error(`Error executing script: ${error.message}`);
+            isUpdatingApp = false;
+            return;
+        }
+        if (stderr) {
+            console.log(`Script stderr: ${stderr}`);
+            return;
+        }
+        console.log(`Script output:\n${stdout}`);
+        isUpdatingApp = false;
+      });
+    } else {
+      console.log("Already updating app, ignoring");
+    }
   } else {
     console.log("Skipped running updating app shell script cause not on raspberrypi");
   }
