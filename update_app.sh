@@ -1,6 +1,6 @@
 #!/bin/bash
 cd /home/kiosk-zvm/zitate-vom-nilogamer
-git fetch origin main >/dev/null
+git fetch origin main 2>/dev/null
 
 # Prüfen, ob der lokale Stand hinter dem Remote liegt
 UPSTREAM=${1:-'@{u}'}
@@ -9,8 +9,10 @@ REMOTE=$(git rev-parse "$UPSTREAM")
 
 if [ $LOCAL != $REMOTE ]; then
     echo "Änderungen gefunden. Aktualisiere..."
-    git pull >/dev/null
+    git pull 2>/dev/null
     # Hier den Befehl zum Neustart einfügen, z.B.:
     npm install
     pm2 reload zvm
+else
+    echo "Keine Änderungen gefunden."
 fi
