@@ -4,6 +4,8 @@
   --discord-primary-nav-bg: #121214;
   --discord-secondary-bg: #232329;
   --discord-outline: #4f4d55;
+  --discord-green: #45A366;
+  --discord-orange: #e69500;
   --discord-shadow: 79, 77, 85;
   --primary-red: #DC2626;
   --primary-red-outline: #be2323;
@@ -179,8 +181,76 @@ label {
 }
 
 
+/* Notifications */
+.notifications {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  display: flex;
+  gap: 12px;
+}
+
+.notification {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  width: 280px;
+  height: 75px;
+  background-color: var(--discord-primary-nav-bg);
+  border: solid;
+  border-width: 0.5px;
+  border-color: var(--discord-outline);
+  border-radius: 12px;
+  box-shadow: 1px 1px 5px 2px rgb(var(--discord-shadow), 0.1);
+}
+
+.notification-icon {
+  display: none;
+  fill: var(--text-color);
+}
+
+.notification-icon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  padding: 8px;
+}
+
+.notification-success .notification-icon-wrapper {
+  background-color: var(--discord-green);
+}
+.notification-warning .notification-icon-wrapper {
+  background-color: var(--discord-orange);
+}
+.notification-error .notification-icon-wrapper {
+  background-color: var(--primary-red);
+}
+
+.notification-success .notification-icon-success {
+  display: inline-block;
+}
+.notification-warning .notification-icon-warning {
+  fill: var(--text-color);
+  display: inline-block;
+}
+.notification-error .notification-icon-error {
+  display: inline-block;
+}
+
+.notification-description {
+  color: var(--text-disabled-color);
+  font-size: 0.8rem;
+}
+
+
 /* App */
 .app {
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
