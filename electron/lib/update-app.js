@@ -13,7 +13,6 @@ function updateApp() {
       exec('sh ' + path.join(__dirname, '../../update_app.sh'), (error, stdout, stderr) => {
         if (error) {
             console.error(`Error executing script: ${error.message}`);
-            isUpdatingApp = false;
             return;
         }
         if (stderr) {
@@ -21,8 +20,8 @@ function updateApp() {
             return;
         }
         console.log(`Script output:\n${stdout}`);
-        isUpdatingApp = false;
       });
+      isUpdatingApp = false;
     } else {
       console.log("Already updating app, ignoring");
     }
