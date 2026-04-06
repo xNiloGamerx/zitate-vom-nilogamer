@@ -23,43 +23,45 @@ document.getElementById('control-shuffle').addEventListener('click', () => {
 });
 
 // Control Interval
-const controlIntervalElement = document.getElementById('control-interval');
-const controlIntervals = {
-  'Täglich': () => quoteDailyInterval(),
-  'Stündlich': () => updateQuoteInterval(createIntervalHours(60)),
-  'Minütlich': () => updateQuoteInterval(createIntervalMinutes(1)),
-  'Alle 30s': () => updateQuoteInterval(createIntervalSeconds(30)),
-  'Sekündlich': () => updateQuoteInterval(createIntervalSeconds(1)),
+const quoteIntervalElement = document.getElementById('control-interval');
+const quoteIntervals = {
+  'Täglich': '0 0 0 * * *',
+  'Stündlich': '0 0 * * * *',
+  'Minütlich': '0 * * * * *',
+  'Alle 30s': '0,30 * * * * *',
+  'Sekündlich': '* * * * * *',
 };
-let currentControlIntervalIndex = 0;
-controlIntervalElement.addEventListener('click', () => {
-  const controlLabels = Object.keys(controlIntervals);
+let currentQuoteIntervalIndex = 0;
+quoteIntervalElement.addEventListener('click', () => {
+  const controlLabels = Object.keys(quoteIntervals);
   
-  if (currentControlIntervalIndex + 1 >= controlLabels.length) {
-    currentControlIntervalIndex = 0;
+  if (currentQuoteIntervalIndex + 1 >= controlLabels.length) {
+    currentQuoteIntervalIndex = 0;
   } else {
-    currentControlIntervalIndex++;
+    currentQuoteIntervalIndex++;
   }
 
-  // Setzen des neuen Control Interval Lables
-  const newControlLabel = controlLabels[currentControlIntervalIndex]
-  controlIntervalElement.innerText = newControlLabel;
+  const quoteIntervalLabel = controlLabels[currentQuoteIntervalIndex]
 
-  // Setzen des neuen Quote Intervals
-  setQuoteIntervalSetting(newControlLabel);
-  controlIntervals[newControlLabel]();
+  // Setzen des neuen Control Interval Lables
+  quoteIntervalElement.innerText = quoteIntervalLabel;
+
+  updateQuoteInterval(quoteIntervalLabel, quoteIntervals[quoteIntervalLabel]);
 });
 
 async function setSavedQuoteInterval() {
-  const savedQuoteInterval = await window.api.getSetting('quote.interval');
+  const savedQuoteIntervalLabel = await window.api.getSetting('quote.interval.label');
+  const savedQuoteInterval = await window.api.getSetting('quote.interval.value');
 
-  if (savedQuoteInterval != undefined) {
-    currentControlIntervalIndex = Object.keys(controlIntervals).indexOf(savedQuoteInterval);
-    controlIntervalElement.innerText = savedQuoteInterval;
-    controlIntervals[savedQuoteInterval]();
+  if (savedQuoteIntervalLabel && savedQuoteInterval) {
+    currentQuoteIntervalIndex = Object.keys(quoteIntervals).indexOf(savedQuoteIntervalLabel);
+    quoteIntervalElement.innerText = savedQuoteIntervalLabel;
+
+    updateQuoteInterval(savedQuoteIntervalLabel, savedQuoteInterval);
   } else {
-    const firstIntervalLabel = Object.keys(controlIntervals)[currentControlIntervalIndex];
-    controlIntervalElement.innerText = firstIntervalLabel;
-    controlIntervals[firstIntervalLabel]();
+    const firstIntervalLabel = Object.keys(quoteIntervals)[0]
+    currentQuoteIntervalIndex = Object.keys(quoteIntervals).indexOf(firstIntervalLabel);
+    
+    updateQuoteInterval(firstIntervalLabel, quoteIntervals[firstIntervalLabel]);
   }
 }
