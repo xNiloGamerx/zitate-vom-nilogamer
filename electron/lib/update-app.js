@@ -5,7 +5,7 @@ const path = require('path');
 
 let isUpdatingApp = false;
 
-function updateApp() {
+function updateApp(win) {
   if (getIsRaspberryPi()) {
     if (!isUpdatingApp) {
       console.log("Updating App")
@@ -32,8 +32,8 @@ function updateApp() {
   }
 }
 
-function setupUpdateAppHandlers() {
-  ipcMain.handle('update-app', () => updateApp());
+function setupUpdateAppHandlers(win) {
+  ipcMain.handle('update-app', () => updateApp(win));
 }
 
 module.exports = { setupUpdateAppHandlers }

@@ -10,7 +10,7 @@ function setupIpcHandlers(app, win) {
   setupQuoteHandlers();
   setupQuoteJobHandlers(win);
   setupUpdateQuotesHandlers(win);
-  setupUpdateAppHandlers();
+  setupUpdateAppHandlers(win);
 
   // Terminate App Handler
   ipcMain.handle('terminate-app', () => app.quit());
