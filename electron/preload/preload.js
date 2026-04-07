@@ -20,6 +20,11 @@ contextBridge.exposeInMainWorld('api', {
   stopQuoteJob: () => ipcRenderer.invoke('stop-quote-job'),
   restartQuoteJob: () => ipcRenderer.invoke('restart-quote-job'),
 
+  onShowInfoNotification: (callback) => ipcRenderer.on('show-info-notification', (event, data) => callback(data)),
+  onShowSuccessNotification: (callback) => ipcRenderer.on('show-success-notification', (event, data) => callback(data)),
+  onShowWarningNotification: (callback) => ipcRenderer.on('show-warning-notification', (event, data) => callback(data)),
+  onShowErrorNotification: (callback) => ipcRenderer.on('show-error-notification', (event, data) => callback(data)),
+
   updateApp: () => ipcRenderer.invoke('update-app'),
 
   terminateApp: () => ipcRenderer.invoke('terminate-app'),

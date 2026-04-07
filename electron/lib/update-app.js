@@ -10,6 +10,7 @@ function updateApp() {
     if (!isUpdatingApp) {
       console.log("Updating App")
       isUpdatingApp = true;
+      win.webContents.send('show-info-notification', { title: "Nach Update suchen..."});
       exec('sh ' + path.join(__dirname, '../../update_app.sh'), (error, stdout, stderr) => {
         if (error) {
             console.error(`Error executing script: ${error.message}`);
@@ -20,6 +21,7 @@ function updateApp() {
             console.log(`Script stderr: ${stderr}`);
         }
         console.log(`Script output:\n${stdout}`);
+        win.webContents.send('show-success-notification', { title: "Update: Neustart"});
         isUpdatingApp = false;
       });
     } else {
