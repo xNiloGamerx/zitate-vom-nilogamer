@@ -383,11 +383,6 @@ label {
 /* Quote Card */
 .quote-card {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  padding: 15px;
   width: 85%;
   height: 350px;
   background-color: var(--discord-secondary-bg);
@@ -397,6 +392,17 @@ label {
   border-radius: 15px;
   box-shadow: 3px 3px 10px 5px rgba(var(--discord-shadow), 0.3);
   transform: translateY(-95px);
+}
+
+.quote-animation-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 15px;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
 }
 
 .quote-stats-wrapper {
@@ -740,8 +746,44 @@ input:checked + .setting-slider::before {
 }
 
 
+.fadeInRight {
+  animation: fadeInRight .5s ease forwards;
+}
+
+.fadeOutLeft {
+  animation: fadeOutLeft .5s ease;
+}
+
 .display-none {
   display: none;
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes fadeOutLeft {
+  0% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
 }
 
 @keyframes popin {

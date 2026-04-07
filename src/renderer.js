@@ -1,7 +1,6 @@
 let birthdayMode = true;
 let quotes = [];
 
-
 // Render Random Quote triggered by Main //
   // window.api.onRenderRandomQuote((data) => {
   //   renderRandomQuote();

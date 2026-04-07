@@ -1,3 +1,15 @@
+const quoteAnimationWrapper = document.getElementById('quote-animation-wrapper');
+const quoteStatsTime = document.getElementById('quote-stats-time');
+const quoteStatsNumberCurrent = document.getElementById('quote-stats-number-current');
+const quoteStatsNumberTotal = document.getElementById('quote-stats-number-total');
+const creatorProfilePicture = document.getElementById('creator-profile-picture');
+const creatorName = document.getElementById('creator-name');
+const quoteText = document.getElementById('quote');
+const authorProfilePicture = document.getElementById('author-profile-picture');
+const authorName = document.getElementById('author-name');
+const quoteDate = document.getElementById('quote-date');
+const quoteTime = document.getElementById('quote-time');
+
 let lastQuoteIds = [];
 
 // Render Random Quote triggered by Main //
@@ -21,12 +33,12 @@ function getRandomQuote() {
   return quotes[Math.floor(Math.random() * quotes.length)];
 }
 
-function renderRandomQuote() {
+async function renderRandomQuote() {
   const randomQuote = getRandomQuote();
   if (lastQuoteIds.includes(randomQuote['id'])) {
-    renderRandomQuote();
+    await renderRandomQuote();
   } else {
-    render(randomQuote);
+    await render(randomQuote);
     lastQuoteIds.push(randomQuote['id']);
 
     if (lastQuoteIds.length > Math.floor(quotes.length / 2)) {
@@ -36,17 +48,10 @@ function renderRandomQuote() {
   console.log(lastQuoteIds);
 }
 
-function render(quote) {
-  const quoteStatsTime = document.getElementById('quote-stats-time');
-  const quoteStatsNumberCurrent = document.getElementById('quote-stats-number-current');
-  const quoteStatsNumberTotal = document.getElementById('quote-stats-number-total');
-  const creatorProfilePicture = document.getElementById('creator-profile-picture');
-  const creatorName = document.getElementById('creator-name');
-  const quoteText = document.getElementById('quote');
-  const authorProfilePicture = document.getElementById('author-profile-picture');
-  const authorName = document.getElementById('author-name');
-  const quoteDate = document.getElementById('quote-date');
-  const quoteTime = document.getElementById('quote-time');
+async function render(quote) {
+  quoteAnimationWrapper.classList.add('fadeOutLeft');
+  
+  await sleep(500);
 
   const now = new Date();
   quoteStatsTime.innerText = String(now.getHours()).padStart(2, '0') + ":" + String(now.getMinutes()).padStart(2, '0');
@@ -76,6 +81,9 @@ function render(quote) {
   });
 
   lastQuote = quote;
+
+  quoteAnimationWrapper.classList.remove('fadeOutLeft');
+  quoteAnimationWrapper.classList.add('fadeInRight');
 }
 
 window.api.onUpdateQuotes((data) => {

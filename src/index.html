@@ -34,22 +34,24 @@
         <div class="quote-stats-wrapper">
           <p class="quote-stats"><span id="quote-stats-time">19:42</span> · <span id="quote-stats-number-current">25</span>/<span id="quote-stats-number-total">80​</span></p>
         </div>
-        <div class="creator-wrapper">
-          <p class="creator-text">created by</p>
-          <div class="creator">
-            <img id="creator-profile-picture" class="creator-profile-picture" src="../assets/user/icons/darktoad.webp" alt="Creator Profile Picture">
-            <p id="creator-name" class="creator-name">Darktoad</p>
+        <div id="quote-animation-wrapper" class="quote-animation-wrapper">
+          <div class="creator-wrapper">
+            <p class="creator-text">created by</p>
+            <div class="creator">
+              <img id="creator-profile-picture" class="creator-profile-picture" src="../assets/user/icons/darktoad.webp" alt="Creator Profile Picture">
+              <p id="creator-name" class="creator-name">Darktoad</p>
+            </div>
           </div>
-        </div>
-        <div class="quote-wrapper">
-          <p id="quote" class="quote">Most bonding moment ist wenn sich das Sperma kreuzt</p>
-        </div>
-        <div class="author-wrapper">
-          <div class="author-profile-picture-wrapper">
-            <img id="author-profile-picture" class="author-profile-picture" src="../assets/user/icons/xxnilogamerxx.webp" alt="Author Profile Picture">
+          <div class="quote-wrapper">
+            <p id="quote" class="quote">Most bonding moment ist wenn sich das Sperma kreuzt</p>
           </div>
-          <p id="author-name" class="author-name">XxNiloGamerxX</p>
-          <p class="quote-time"><span id="quote-date">12.03.2026</span> · <span id="quote-time">20:36​</span></p>
+          <div class="author-wrapper">
+            <div class="author-profile-picture-wrapper">
+              <img id="author-profile-picture" class="author-profile-picture" src="../assets/user/icons/xxnilogamerxx.webp" alt="Author Profile Picture">
+            </div>
+            <p id="author-name" class="author-name">XxNiloGamerxX</p>
+            <p class="quote-time"><span id="quote-date">12.03.2026</span> · <span id="quote-time">20:36​</span></p>
+          </div>
         </div>
       </div>
     </div>
@@ -146,6 +148,7 @@
   </div>
   <button onclick="createNotification('info', 'Test')">Create Success Notification</button>
   
+  <script src="scripts/utils.js"></script>
   <script src="scripts/quotes.js"></script>
   <script src="scripts/settings.js"></script>
   <script src="scripts/terminate.js"></script>
