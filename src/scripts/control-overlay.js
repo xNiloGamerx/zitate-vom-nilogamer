@@ -29,7 +29,7 @@ const quoteIntervalElement = document.getElementById('control-interval');
 const quoteIntervals = {
   'Täglich': '0 0 0 * * *',
   'Stündlich': '0 0 * * * *',
-  'Alle 30 min.': '0 0,30 0 * * *',
+  'Alle 30 min.': '0 0,30 * * * *',
   'Minütlich': '0 * * * * *',
   'Alle 30s': '0,30 * * * * *',
   'Sekündlich': '* * * * * *',
