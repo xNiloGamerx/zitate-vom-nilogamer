@@ -20,10 +20,12 @@ function updateApp(win) {
         if (stderr) {
             console.log(`Script stderr: ${stderr}`);
         }
-        console.log(`Script output:\n${stdout}`);
-        if (stdout === "changes_found") {
+        const output = stdout.trim();
+
+        console.log(`Script output:\n${output}`);
+        if (output === "changes_found") {
           win.webContents.send('show-success-notification', { title: "Update: Neustart" });
-        } else if (stdout === "changes_not_found")  {
+        } else if (output === "changes_not_found")  {
           win.webContents.send('show-success-notification', { title: "Keine neue Version" });
         }
         isUpdatingApp = false;
