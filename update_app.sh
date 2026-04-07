@@ -8,11 +8,11 @@ LOCAL=$(git rev-parse @)
 REMOTE=$(git rev-parse "$UPSTREAM")
 
 if [ $LOCAL != $REMOTE ]; then
-    echo "Änderungen gefunden. Aktualisiere..."
+    echo "changes_found"
     git pull 2>/dev/null
     # Hier den Befehl zum Neustart einfügen, z.B.:
     npm install
     pm2 reload zvm
 else
-    echo "Keine Änderungen gefunden."
+    echo "changes_not_found"
 fi
