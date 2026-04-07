@@ -21,10 +21,10 @@ function updateApp(win) {
             console.log(`Script stderr: ${stderr}`);
         }
         console.log(`Script output:\n${stdout}`);
-        if (stdout === "changes_not_found") {
-          win.webContents.send('show-success-notification', { title: "Keine neue Version" });
-        } else {
+        if (stdout === "changes_found") {
           win.webContents.send('show-success-notification', { title: "Update: Neustart" });
+        } else if  {
+          win.webContents.send('show-success-notification', { title: "Keine neue Version" });
         }
         isUpdatingApp = false;
       });
