@@ -1,5 +1,5 @@
 //
-// TODO: Implement to buttons: Update App and Update Quotes in Settings Modal to manually update app and qutoes
+// TODO: Fix shutdown app, pm2 restarts it emediatly. Setup pm2 to autostart app or schedule it in raspberrypi. Find fix so user doesnt see desktop when pm2 restarts app
 //
 
 const { app, BrowserWindow, ipcMain  } = require('electron/main');
