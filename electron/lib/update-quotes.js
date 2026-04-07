@@ -6,7 +6,7 @@ const { getIsRaspberryPi } = require('../utils');
 
 function pullQuotes(win) {
   if (getIsRaspberryPi()) {
-    win.webContents.send('show-info-notification', { title: "Lade im Hintergrund"});
+    win.webContents.send('show-info-notification', { title: "Lade im Hintergrund" });
     exec('sh ' + path.join(__dirname, '../../update_quotes.sh'), (error, stdout, stderr) => {
       if (error) {
           console.error(`Error executing script: ${error.message}`);
@@ -20,7 +20,7 @@ function pullQuotes(win) {
       
       if (win && !win.isDestroyed()) {
         win.webContents.send('update-quotes');
-        win.webContents.send('show-success-notification', { title: "Zitate geladen"});
+        win.webContents.send('show-success-notification', { title: "Zitate geladen" });
         console.log("Finished Quotes Daily successfully");
       } else {
         console.log("Updating quotes not possible. win is undefined or destroyed");
