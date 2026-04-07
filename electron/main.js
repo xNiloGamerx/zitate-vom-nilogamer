@@ -1,6 +1,6 @@
 //
 // Bug: Beim hinzufügen und dan ändern eines neuen Intervals wird das neue Intervall nicht genutzt da in der config label und interval gespeichert werden, wodurch das falsche Interval genutzt wird
-// TODO: Fix shutdown app, pm2 restarts it emediatly. Setup pm2 to autostart app or schedule it in raspberrypi. Find fix so user doesnt see desktop when pm2 restarts app
+// TODO: Fix shutdown app, pm2 restarts it emediatly. Setup pm2 to autostart app or schedule it in raspberrypi. Find fix so user doesnt see desktop when pm2 restarts app, Helligkeit kontrolliere
 //
 
 const { app, BrowserWindow, ipcMain  } = require('electron/main');
