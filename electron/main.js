@@ -17,8 +17,8 @@ if (isRaspberryPi) {
   app.commandLine.appendSwitch('enable-gpu-rasterization');
   app.commandLine.appendSwitch('display-compositor-pixel-dump');
 
+    app.commandLine.appendSwitch('remote-debugging-address', '0.0.0.0');
   app.commandLine.appendSwitch('remote-debugging-port', '9222');
-  app.commandLine.appendSwitch('remote-debugging-address', '0.0.0.0');
 }
 
 function createWindow() {
