@@ -2,7 +2,7 @@ const { ipcMain  } = require('electron/main');
 const { getIsRaspberryPi } = require('../utils');
 const isRaspi = getIsRaspberryPi();
 
-const pm2;
+let pm2;
 if (isRaspi) {
   pm2 = require('pm2');
 }
