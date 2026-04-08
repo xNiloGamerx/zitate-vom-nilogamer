@@ -14,12 +14,10 @@ const isRaspberryPi = getIsRaspberryPi();
 
 if (isRaspberryPi) {
   // app.disableHardwareAcceleration();
+  app.commandLine.appendSwitch('ignore-gpu-blocklist');
   app.commandLine.appendSwitch('enable-gpu-rasterization');
-  app.commandLine.appendSwitch('display-compositor-pixel-dump');
-  app.commandLine.appendSwitch('js-flags', '--max-old-space-size=128');
-
-  app.commandLine.appendSwitch('remote-debugging-address', '0.0.0.0');
-  app.commandLine.appendSwitch('remote-debugging-port', '9222');
+  app.commandLine.appendSwitch('enable-zero-copy');
+  app.commandLine.appendSwitch('js-flags', '--max-old-space-size=384');
 }
 
 function createWindow() {
