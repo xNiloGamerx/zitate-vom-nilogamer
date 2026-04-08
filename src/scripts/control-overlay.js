@@ -54,16 +54,16 @@ quoteIntervalElement.addEventListener('click', () => {
 
 async function setSavedQuoteIntervalOrDefault() {
   const savedQuoteIntervalLabel = await window.api.getSetting('quote.interval.label');
-  const savedQuoteInterval = await window.api.getSetting('quote.interval.value');
 
-  if (savedQuoteIntervalLabel && savedQuoteInterval) {
+  if (savedQuoteIntervalLabel) {
     currentQuoteIntervalIndex = Object.keys(quoteIntervals).indexOf(savedQuoteIntervalLabel);
     quoteIntervalElement.innerText = savedQuoteIntervalLabel;
 
-    updateQuoteInterval(savedQuoteIntervalLabel, savedQuoteInterval);
+    updateQuoteInterval(savedQuoteIntervalLabel, quoteIntervals[savedQuoteIntervalLabel]);
   } else {
     const firstIntervalLabel = Object.keys(quoteIntervals)[0]
-    currentQuoteIntervalIndex = Object.keys(quoteIntervals).indexOf(firstIntervalLabel);
+    currentQuoteIntervalIndex = 0;
+    quoteIntervalElement.innerText = firstIntervalLabel;
     
     updateQuoteInterval(firstIntervalLabel, quoteIntervals[firstIntervalLabel]);
   }

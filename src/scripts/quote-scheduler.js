@@ -1,6 +1,5 @@
-function setQuoteIntervalSetting(quoteIntervalLabel, quoteInterval) {
+function setQuoteIntervalSetting(quoteIntervalLabel) {
   window.api.setSetting('quote.interval.label', quoteIntervalLabel);
-  window.api.setSetting('quote.interval.value', quoteInterval);
 }
 
 function updateQuoteInterval(newQuoteIntervalLabel, newQuoteInterval) {
@@ -10,5 +9,5 @@ function updateQuoteInterval(newQuoteIntervalLabel, newQuoteInterval) {
   console.log("Trigger Restart Quote Job")
   window.api.restartQuoteJob();
 
-  setQuoteIntervalSetting(newQuoteIntervalLabel, newQuoteInterval);
+  setQuoteIntervalSetting(newQuoteIntervalLabel);
 }
