@@ -1,5 +1,6 @@
 const settingsModal = document.getElementById('settings-modal');
 const birthdayModeToggle = document.getElementById('birthday-mode-input');
+const whoSaidItToggle = document.getElementById('who-said-it-input');
 let isSettingsModalOpen = false;
 
 function toggleSettingsModal() {
@@ -27,6 +28,13 @@ async function loadSavedSetting() {
     birthdayMode = true;
   }
   birthdayModeToggle.checked = birthdayMode;
+
+  // Who Said It
+  whoSaidIt = await window.api.getSetting('settings.who-said-it');
+  if (whoSaidIt === undefined) {
+    whoSaidIt = false;
+  }
+  whoSaidItToggle.checked = whoSaidIt;
   
 }
 
@@ -48,5 +56,16 @@ birthdayModeToggle.addEventListener("change", () => {
   } else {
     birthdayMode = false;
     window.api.setSetting('settings.birthday-mode', birthdayMode);
+  }
+});
+
+// Who Said It Setting
+whoSaidItToggle.addEventListener("change", () => {
+  if (whoSaidItToggle.checked) {
+    whoSaidIt = true;
+    window.api.setSetting('settings.who-said-it', whoSaidIt);
+  } else {
+    whoSaidIt = false;
+    window.api.setSetting('settings.who-said-it', whoSaidIt);
   }
 });

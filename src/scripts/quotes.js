@@ -66,8 +66,25 @@ async function render(quote) {
   quoteText.innerText = quote['quote']['value'];
 
   authorProfilePicture.src = "../assets/user/icons/" + quote['author']['profile_picture'];
+  if (whoSaidIt) {
+    authorProfilePicture.parentElement.classList.add('anonym')
+  } else {
+    authorProfilePicture.parentElement.classList.remove('anonym')
+  }
+
   authorName.style.color = quote['author']['color'];
   authorName.innerText = quote['author']['name'];
+  if (whoSaidIt) {
+    authorName.classList.add('anonym')
+  } else {
+    authorName.classList.remove('anonym')
+  }
+
+  if (whoSaidIt) {
+    document.getElementById('who-said-it-show-button').parentElement.style.display = 'inline-block';
+  } else {
+    document.getElementById('who-said-it-show-button').parentElement.style.removeProperty('display');
+  }
 
   const time = new Date(quote['timestamp'] * 1000);
   quoteDate.innerText = time.toLocaleDateString('de-DE', {

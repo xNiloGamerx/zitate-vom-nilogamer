@@ -526,6 +526,7 @@ label {
 }
 
 .author-profile-picture-wrapper {
+  position: relative;
   width: 50px;
   height: 50px;
 }
@@ -537,12 +538,45 @@ label {
 }
 
 .author-name {
+  position: relative;
   font-size: 1.1rem;
 }
 
 .quote-time {
   color: var(--text-disabled-color);
   font-size: 0.8rem;
+}
+
+.who-said-it-show-wrapper {
+  position: absolute;
+  display: none;
+  top: 10px;
+  right: 12px;
+  width: 20px;
+  height: 20px;
+  z-index: 999;
+}
+
+.who-said-it-show-button {
+  width: 100%;
+  height: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.who-said-it-show-icon {
+  fill: var(--text-disabled-color);
+}
+
+.anonym::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  background-color: #000;
 }
 
 
@@ -667,7 +701,7 @@ label {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 8px;
+  gap: 16px;
   width: 100%;
   height: 100%;
 }

@@ -1,4 +1,5 @@
 let birthdayMode = true;
+let whoSaidIt = false;
 let quotes = [];
 
 // Render Random Quote triggered by Main //
