@@ -34,7 +34,7 @@ function pullQuotes(win) {
 function startPullQuotesDaily(win) {
   if (getIsRaspberryPi()) {
     console.log("Started Update Quotes Daily");
-    schedule.scheduleJob('* 0 0 * * *', () => {
+    schedule.scheduleJob('0 0 0 * * *', () => {
       pullQuotes(win);
     });
   } else {
