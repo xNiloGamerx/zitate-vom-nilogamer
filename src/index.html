@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="app">
+  <div id="app" class="app">
     <nav class="navbar">
       <div class="decorator-wrapper">
         <div class="decorator"></div>
@@ -68,13 +68,30 @@
           <p>Settings</p>
           <svg id="settings-close-btn" class="settings-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M504.6 148.5C515.9 134.9 514.1 114.7 500.5 103.4C486.9 92.1 466.7 93.9 455.4 107.5L320 270L184.6 107.5C173.3 93.9 153.1 92.1 139.5 103.4C125.9 114.7 124.1 134.9 135.4 148.5L278.3 320L135.4 491.5C124.1 505.1 125.9 525.3 139.5 536.6C153.1 547.9 173.3 546.1 184.6 532.5L320 370L455.4 532.5C466.7 546.1 486.9 547.9 500.5 536.6C514.1 525.3 515.9 505.1 504.6 491.5L361.7 320L504.6 148.5z"/></svg>
         </div>
-        
-        <div class="setting-wrapper">
-          <p class="setting-label">Geburtstagsmodus</p>
-          <label class="setting-switch">
-            <input id="birthday-mode-input" type="checkbox" checked>
-            <span class="setting-slider"></span>
-          </label>
+
+        <div class="settings-wrapper">
+          <div class="setting-wrapper">
+            <p class="setting-label">Geburtstagsmodus</p>
+            <label class="setting-switch">
+              <input id="birthday-mode-input" type="checkbox" checked>
+              <span class="setting-slider"></span>
+            </label>
+          </div>
+
+          <div class="setting-wrapper">
+            <p class="setting-label">Helligkeit</p>
+            <div class="setting-input-wrapper">
+              <input id="brightness-inp" class="input-slider" type="range" min="20" max="180" list="brightness-markers">
+              <datalist id="brightness-markers">
+                <option value="20"></option>
+                <option value="60"></option>
+                <option value="100"></option>
+                <option value="140"></option>
+                <option value="180"></option>
+              </datalist>
+              <p id="brightness-inp-label" class="input-slider-label">100</p>
+            </div>
+          </div>
         </div>
 
         <div class="setting-update-btn-wrapper">
@@ -149,6 +166,7 @@
   </div>
   
   <script src="scripts/utils.js"></script>
+  <script src="scripts/brightness.js"></script>
   <script src="scripts/quotes.js"></script>
   <script src="scripts/settings.js"></script>
   <script src="scripts/terminate.js"></script>

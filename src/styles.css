@@ -7,6 +7,7 @@
   --discord-blue: #7A83F8;
   --discord-green: #45A366;
   --discord-orange: #e69500;
+  --discord-gray: #3e3f42;
   --discord-shadow: 79, 77, 85;
   --primary-red: #DC2626;
   --primary-red-outline: #be2323;
@@ -106,6 +107,64 @@ label {
   transition: opacity .3s ease;
   cursor: pointer;
 }
+
+/* Input Slider */
+.input-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  background: var(--discord-gray);
+  border-radius: 5px;
+  outline: none;
+  background-image: linear-gradient(var(--discord-blue), var(--discord-blue));
+  background-size: 50% 100%;
+  background-repeat: no-repeat;
+}
+
+/* Styling des Knopfes (Chrome, Safari, Edge, Opera) */
+.input-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  margin-bottom: 16px;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: var(--text-color);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  transition: transform 0.1s ease;
+}
+
+.input-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+}
+
+/* Styling des Knopfes (Firefox) */
+.input-slider::-moz-range-thumb {
+  margin-bottom: 16px;
+  width: 18px;
+  height: 18px;
+  background: #ffffff;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.input-slider-label {
+  width: 50px;
+  font-size: 0.8rem;
+  margin-left: 5px;
+  padding: 4px 6px 4px 6px;
+  text-align: center;
+  background-color: var(--discord-primary-bg);
+  border: solid;
+  border-width: 1px;
+  border-color: var(--discord-outline);
+  border-radius: 8px;
+}
+
 
 .secondary-button:hover {
   opacity: 0.9;
@@ -603,12 +662,28 @@ label {
   cursor: pointer;
 }
 
+.settings-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8px;
+  width: 100%;
+  height: 100%;
+}
+
 .setting-wrapper {
-  flex: 1 1;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  gap: 4px;
   width: 100%;
   padding: 0px 15px 0px 15px;
+}
+
+.setting-input-wrapper {
+  display: flex;
+  align-items: center;
 }
 
 .setting-switch {
