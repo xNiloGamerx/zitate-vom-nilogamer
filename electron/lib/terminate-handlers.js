@@ -32,19 +32,20 @@ function setupTerminateAppHandlers(app) {
         const processExists = list.some(proc => proc.name === PROCESS_NAME);
 
         if (processExists) {
-          console.log(`Fround process "${PROCESS_NAME}" terminating it.`);
+          console.log(`Found process "${PROCESS_NAME}" terminating it.`);
           pm2.stop(PROCESS_NAME, (err) => {
             if (err) {
               console.log(`Error terminating process "${PROCESS_NAME}"`);
             } else {
               console.log(`Terminated process "${PROCESS_NAME}"`)
             }
+
+            pm2.disconnect();
           });
         } else {
           console.log(`Process "${PROCESS_NAME}" stop trying to terminate it.`);
+          pm2.disconnect();
         }
-
-        pm2.disconnect();
       });
     });
   });
