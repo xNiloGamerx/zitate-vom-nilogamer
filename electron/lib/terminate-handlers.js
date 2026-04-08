@@ -2,8 +2,9 @@ const { ipcMain  } = require('electron/main');
 const { getIsRaspberryPi } = require('../utils');
 const isRaspi = getIsRaspberryPi();
 
+const pm2;
 if (isRaspi) {
-  const pm2 = require('pm2');
+  pm2 = require('pm2');
 }
 const PROCESS_NAME = 'zvm';
 
