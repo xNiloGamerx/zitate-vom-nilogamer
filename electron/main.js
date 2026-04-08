@@ -1,5 +1,5 @@
 //
-// TODO: Fix shutdown app, pm2 restarts it emediatly. Setup pm2 to autostart app or schedule it in raspberrypi. Find fix so user doesnt see desktop when pm2 restarts app, Helligkeit kontrollieren
+// TODO: Find fix so user doesnt see desktop when pm2 restarts app, Helligkeit kontrollieren
 //
 
 const { app, BrowserWindow, ipcMain  } = require('electron/main');
