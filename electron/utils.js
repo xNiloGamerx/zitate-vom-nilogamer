@@ -1,4 +1,9 @@
+const { net } = require('electron')
 const fs = require('fs');
+
+function getIsOnline() {
+    return net.isOnline();
+}
 
 function getIsRaspberryPi() {
     try {
@@ -10,5 +15,6 @@ function getIsRaspberryPi() {
 }
 
 module.exports = {
+    getIsOnline,
     getIsRaspberryPi
 }
