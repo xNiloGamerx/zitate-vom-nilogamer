@@ -37,6 +37,10 @@ label {
 }
 
 .modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -547,27 +551,6 @@ label {
   font-size: 0.8rem;
 }
 
-.who-said-it-show-wrapper {
-  position: absolute;
-  display: none;
-  top: 10px;
-  right: 12px;
-  width: 20px;
-  height: 20px;
-  z-index: 999;
-}
-
-.who-said-it-show-button {
-  width: 100%;
-  height: 100%;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.who-said-it-show-icon {
-  fill: var(--text-disabled-color);
-}
 
 .anonym::after {
   position: absolute;
@@ -902,22 +885,22 @@ input:checked + .setting-slider::before {
 @keyframes popin {
   0% {
     opacity: 0;
-    transform: scale(0.8);
+    transform: scale(0.8) translate(-50%, -50%);
   }
   100% {
     opacity: 1;
-    transform: scale(1);
+    transform: scale(1) translate(-50%, -50%);
   }
 }
 
 @keyframes popout {
   0% {
     opacity: 1;
-    transform: scale(1);
+    transform: scale(1) translate(-50%, -50%);
   }
   100% {
     opacity: 0;
-    transform: scale(0.8);
+    transform: scale(0.8) translate(-50%, -50%);
   }
 }
 

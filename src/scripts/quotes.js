@@ -81,9 +81,9 @@ async function render(quote) {
   }
 
   if (whoSaidIt) {
-    document.getElementById('who-said-it-show-button').parentElement.style.display = 'inline-block';
+    document.getElementById('who-said-it-show-wrapper').classList.remove('display-none');
   } else {
-    document.getElementById('who-said-it-show-button').parentElement.style.removeProperty('display');
+    document.getElementById('who-said-it-show-wrapper').classList.add('display-none');
   }
 
   const time = new Date(quote['timestamp'] * 1000);
