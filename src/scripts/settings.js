@@ -35,7 +35,12 @@ async function loadSavedSetting() {
     whoSaidIt = false;
   }
   whoSaidItToggle.checked = whoSaidIt;
-  
+
+  // Brightness
+  const brightness = await window.api.getSetting('settings.brightness') || 100;
+  setBrightness(brightness);
+  brightnessSlider.value = brightness;
+  updateSlider(brightnessSlider.min, brightnessSlider.max, brightness);
 }
 
 // Show/Hide Settings Modal
