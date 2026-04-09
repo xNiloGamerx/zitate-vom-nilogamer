@@ -1,5 +1,5 @@
 //
-// TODO: Find fix so user doesnt see desktop when pm2 restarts app, SCHAUEN WAS PASSIERT WENN KEIN INTERNET DA IST, Fixen das man nicht auf das Auge bei Wo Said It klicken kann (Beste ist i guess das in control overlay zu packen), Randomizer nochmal anschauen
+// TODO: Find fix so user doesnt see desktop when pm2 restarts app, SCHAUEN WAS PASSIERT WENN KEIN INTERNET DA IST
 //
 
 const { app, BrowserWindow, ipcMain  } = require('electron/main');
