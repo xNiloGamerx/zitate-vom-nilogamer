@@ -5,9 +5,11 @@
 const { app, BrowserWindow, ipcMain  } = require('electron/main');
 const path = require('path');
 const { setupIpcHandlers } = require('./lib/ipc-handlers');
-const { getIsRaspberryPi } = require('./utils');
+const { getIsOnline, getIsRaspberryPi } = require('./utils');
 const { setSetting, getSetting } = require('./setting');
 const { startPullQuotesDaily } = require('./lib/update-quotes');
+
+console.log("Is Online:", getIsOnline());
 
 let win;
 const isRaspberryPi = getIsRaspberryPi();
