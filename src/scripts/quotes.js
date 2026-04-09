@@ -10,7 +10,7 @@ const authorName = document.getElementById('author-name');
 const quoteDate = document.getElementById('quote-date');
 const quoteTime = document.getElementById('quote-time');
 
-let lastQuoteIds = [];
+let lastQuoteIds = new Set();
 
 // Render Random Quote triggered by Main //
 window.api.onRenderRandomQuote((data) => {
@@ -30,20 +30,25 @@ async function loadQuotes() {
 }
 
 function getRandomQuote() {
-  return quotes[Math.floor(Math.random() * quotes.length)];
+  return quotes[(Math.random() * quotes.length) | 0]; // Das Bitwise-ODER (| 0) ist technisch gesehen schneller als Math.floor(), macht aber genau dasselbe (es schneidet die Nachkommastellen ab)
 }
 
 async function renderRandomQuote() {
-  const randomQuote = getRandomQuote();
-  if (lastQuoteIds.includes(randomQuote['id'])) {
-    await renderRandomQuote();
-  } else {
-    await render(randomQuote);
-    lastQuoteIds.push(randomQuote['id']);
+  let randomQuote;
+  let attempts = 0;
 
-    if (lastQuoteIds.length > Math.floor(quotes.length / 2)) {
-      lastQuoteIds.shift();
-    }
+  do {
+    randomQuote = getRandomQuote();
+    attempts++;
+  } while (lastQuoteIds.has(randomQuote.id) && attempts < 50);
+
+  await render(randomQuote);
+
+  lastQuoteIds.add(randomQuote['id']);
+
+  if (lastQuoteIds.size > Math.floor(quotes.length / 1.5)) {
+    const firstEntry = lastQuoteIds.values().next().value;
+    lastQuoteIds.delete(firstEntry);
   }
   console.log(lastQuoteIds);
 }
