@@ -1,6 +1,7 @@
 //
-// TODO: Find fix so user doesnt see desktop when pm2 restarts app, SCHAUEN WAS PASSIERT WENN KEIN INTERNET DA IST
+// TODO: Taskbar ganz leeren das der Bildschirm ganz schwarz ist
 //
+
 
 const { app, BrowserWindow, ipcMain  } = require('electron/main');
 const path = require('path');
