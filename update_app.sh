@@ -12,7 +12,8 @@ if [ $LOCAL != $REMOTE ]; then
     git pull 2>/dev/null
     # Hier den Befehl zum Neustart einfügen, z.B.:
     npm install
-    pm2 reload zvm
+    pm2 stop zvm
+    ./start_pm2.sh
 else
     echo "changes_not_found"
 fi
