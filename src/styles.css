@@ -762,9 +762,18 @@ input:checked + .setting-slider::before {
   font-size: 1rem;
 }
 
+.settings-terminate-shutdown-wrapper {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
 .settings-terminate-wrapper {
-  width: 50%;
-  height: 42px;
+  width: 100%;
+}
+
+.settings-shutdown-wrapper {
+  width: 100%;
 }
 
 
