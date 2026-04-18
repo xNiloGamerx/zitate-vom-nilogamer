@@ -10,7 +10,7 @@ function setupShutdownPiHandlers(app) {
     }
 
     exec(
-      "shutdown now"), // kiosk-zvm hat benötigte Berechtigungen
+      "shutdown now", // kiosk-zvm hat benötigte Berechtigungen
       (error, stdout, stderr) => {
         if (error) {
           console.error(`Error executing script: ${error.message}`);
@@ -22,7 +22,7 @@ function setupShutdownPiHandlers(app) {
         }
         console.log(`Script output:\n${stdout}`);
       },
-    );
+    )
   });
 }
 
