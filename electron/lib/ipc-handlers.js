@@ -5,6 +5,7 @@ const { setupQuoteJobHandlers } = require('./quote-job-handlers');
 const { setupUpdateQuotesHandlers } = require('./update-quotes');
 const { setupUpdateAppHandlers } = require('./update-app');
 const { setupTerminateAppHandlers } = require('./terminate-handlers');
+const { setupShutdownPiHandlers } = require('./shutdown-handlers')
 
 function setupIpcHandlers(app, win) {
   setupSettingHandlers();
@@ -13,6 +14,7 @@ function setupIpcHandlers(app, win) {
   setupUpdateQuotesHandlers(win);
   setupUpdateAppHandlers(win);
   setupTerminateAppHandlers(app);
+  setupShutdownPiHandlers();
 
   // Open Dev Window Handler
   ipcMain.handle('openDevTools', () => win.webContents.openDevTools());

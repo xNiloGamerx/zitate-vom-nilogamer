@@ -2,7 +2,7 @@ const { ipcMain } = require("electron/main");
 const { getIsRaspberryPi } = require("../utils");
 const isRaspi = getIsRaspberryPi();
 
-function setupTerminateAppHandlers(app) {
+function setupShutdownPiHandlers(app) {
   ipcMain.handle("shutdown-pi", () => {
     if (!isRaspi) {
       app.quit();
@@ -26,4 +26,4 @@ function setupTerminateAppHandlers(app) {
   });
 }
 
-module.exports = { setupTerminateAppHandlers };
+module.exports = { setupShutdownPiHandlers };
