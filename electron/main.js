@@ -1,5 +1,5 @@
 //
-// TODO: Taskbar ganz leeren das der Bildschirm ganz schwarz ist, möglichkeit geben den raspberrypi neu zu starten, möglichkeit geben des raspberrypi zu updaten
+// TODO: Taskbar ganz leeren das der Bildschirm ganz schwarz ist, möglichkeit geben den raspberrypi neu zu starten, möglichkeit geben des raspberrypi zu updaten, isTerminateModalOpen variable zu isPinInputModalOpen ändern, shutdown befehl ausführen noch
 //
 
 

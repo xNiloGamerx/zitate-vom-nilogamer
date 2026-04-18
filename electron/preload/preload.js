@@ -28,4 +28,5 @@ contextBridge.exposeInMainWorld('api', {
   updateApp: () => ipcRenderer.invoke('update-app'),
 
   terminateApp: () => ipcRenderer.invoke('terminate-app'),
+  shutdownPi: () => ipcRenderer.invoke('shutdown-pi'),
 });
