@@ -1,5 +1,6 @@
 #!/bin/bash
 cd /home/kiosk-zvm/zitate-vom-nilogamer
+git restore .
 git fetch origin main 2>/dev/null
 
 # Prüfen, ob der lokale Stand hinter dem Remote liegt
