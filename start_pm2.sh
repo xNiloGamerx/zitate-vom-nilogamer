@@ -1,3 +1,4 @@
+#!/bin/bash
 cd /home/kiosk-zvm/zitate-vom-nilogamer
 
 MY_UID=$(id -u)
