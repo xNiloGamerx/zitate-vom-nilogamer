@@ -1,3 +1,5 @@
+cd /home/kiosk-zvm/zitate-vom-nilogamer
+
 MY_UID=$(id -u)
 
 MY_DBUS="unix:path=/run/user/$MY_UID/bus"
