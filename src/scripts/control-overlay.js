@@ -32,7 +32,7 @@ const quoteIntervals = {
   'Alle 30 min.': '0 0,30 * * * *',
   'Minütlich': '0 * * * * *',
   'Alle 30s': '0,30 * * * * *',
-  'Alle 2s': '*/2 * * * * *',
+  'Alle 5s': '*/5 * * * * *',
 };
 let currentQuoteIntervalIndex = 0;
 quoteIntervalElement.addEventListener('click', () => {
