@@ -40,8 +40,8 @@ function createWindow() {
     }
   } else {
     browserWindowPayload = {
-      width: 1024,
-      height: 600,
+      width: 616,
+      height: 345,
       webPreferences: {
         preload: path.join(__dirname, 'preload/preload.js'),
         contextIsolation: true

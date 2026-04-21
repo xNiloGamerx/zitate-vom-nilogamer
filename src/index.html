@@ -8,7 +8,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body style="position: relative;">
+  <div class="showcase-video-wrapper display-none">
+    <button id="start-showcase-video-btn" class="start-showcase-video-btn">
+      <img class="start-showcase-video-img" src="../videos/assets/18yearsOld.png" alt="18 Years Old">
+    </button>
+    <video id="showcase-video" class="showcase-video" muted playsinline>
+      <source src="../videos/zitate-vom-nilogamer.mp4" type="video/mp4">
+      Ihr Browser unterstützt dieses Videoformat nicht.
+    </video>
+  </div>
+  
   <div id="app" class="app">
     <nav class="navbar">
       <div class="decorator-wrapper">
@@ -208,5 +218,6 @@
   <script src="scripts/control-overlay.js"></script>
   <script src="scripts/clock.js"></script>
   <script src="renderer.js"></script>
+  <script src="scripts/showcase-video.js"></script>
 </body>
 </html>
