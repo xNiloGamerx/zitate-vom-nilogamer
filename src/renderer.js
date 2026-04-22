@@ -14,7 +14,10 @@ async function init() {
   renderRandomQuote();
 
   // Load saved Settings
-  loadSavedSetting();
+  await loadSavedSetting();
+
+  // Initialize Showcase Video
+  initializeShowcaseVideo()
 
   // Set Quote Interval from last app run
   setSavedQuoteIntervalOrDefault();

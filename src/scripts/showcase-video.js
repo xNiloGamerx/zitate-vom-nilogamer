@@ -24,10 +24,12 @@ function handleShowcaseVideoEnded() {
   showcaseVideo.removeEventListener('ended', handleShowcaseVideoEnded);
 }
 
-if (birthdayMode) {
-  startShowcaseVideoBtn.addEventListener('click', handleStartShowcaseVideoBtn)
-  showcaseVideo.addEventListener('ended', handleShowcaseVideoEnded);
-} else {
-  showcaseVideo.parentElement.classList.add('display-none');
-  app.classList.remove('display-none');
+function initializeShowcaseVideo() {
+  console.log("Initialize Showcase Video: ", birthdayMode);
+  if (birthdayMode) {
+    startShowcaseVideoBtn.addEventListener('click', handleStartShowcaseVideoBtn)
+    showcaseVideo.addEventListener('ended', handleShowcaseVideoEnded);
+  } else {
+    hideShowcaseVideo();
+  }
 }

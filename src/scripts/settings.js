@@ -24,6 +24,7 @@ function hideSettingsModal() {
 async function loadSavedSetting() {
   // Birthday Mode
   birthdayMode = await window.api.getSetting('settings.birthday-mode');
+  console.log("Load Birthday Mode Setting: ", birthdayMode);
   if (birthdayMode === undefined) {
     birthdayMode = true;
   }
