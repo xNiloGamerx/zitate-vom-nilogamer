@@ -1,5 +1,5 @@
 //
-// TODO: Taskbar ganz leeren das der Bildschirm ganz schwarz ist, möglichkeit geben des raspberrypi zu updaten
+// TODO: Taskbar ganz leeren das der Bildschirm ganz schwarz ist
 //
 
 
