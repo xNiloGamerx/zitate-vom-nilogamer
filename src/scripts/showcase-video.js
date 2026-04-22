@@ -3,7 +3,8 @@ const showcaseVideo = document.getElementById('showcase-video');
 const app = document.getElementById('app');
 
 function showShowcaseVideo() {
-  showcaseVideo.target.classList.add('display-none');
+  startShowcaseVideoBtn.classList.add('display-none');
+  showcaseVideo.parentElement.classList.remove('display-none');
   app.classList.add('display-none');
 }
 
