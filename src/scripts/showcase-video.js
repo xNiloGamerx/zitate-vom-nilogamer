@@ -3,8 +3,6 @@ const showcaseVideo = document.getElementById('showcase-video');
 const app = document.getElementById('app');
 
 if (birthdayMode) {
-  showcaseVideo.parentElement.classList.remove('display-none');
-
   startShowcaseVideoBtn.addEventListener('click', (event) => {
     event.target.classList.add('display-none');
     app.classList.add('display-none');
@@ -14,4 +12,7 @@ if (birthdayMode) {
     showcaseVideo.parentElement.classList.add('display-none');
     app.classList.remove('display-none');
   });
+} else {
+  showcaseVideo.parentElement.classList.add('display-none');
+  app.classList.remove('display-none');
 }
