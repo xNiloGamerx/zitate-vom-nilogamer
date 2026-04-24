@@ -16,11 +16,11 @@ let win;
 const isRaspberryPi = getIsRaspberryPi();
 
 if (isRaspberryPi) {
-  // app.disableHardwareAcceleration();
-  app.commandLine.appendSwitch('ignore-gpu-blocklist');
-  app.commandLine.appendSwitch('enable-gpu-rasterization');
-  app.commandLine.appendSwitch('enable-zero-copy');
-  app.commandLine.appendSwitch('js-flags', '--max-old-space-size=384');
+  app.disableHardwareAcceleration();
+  // app.commandLine.appendSwitch('ignore-gpu-blocklist');
+  // app.commandLine.appendSwitch('enable-gpu-rasterization');
+  // app.commandLine.appendSwitch('enable-zero-copy');
+  // app.commandLine.appendSwitch('js-flags', '--max-old-space-size=384');
 }
 
 function createWindow() {
